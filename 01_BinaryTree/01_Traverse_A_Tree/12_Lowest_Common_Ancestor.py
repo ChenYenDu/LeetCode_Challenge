@@ -17,10 +17,10 @@ class Solution:
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
 
-        if left != None and right != None:
+        if left != None and right != None: # this mean vboth side find p or q so the root is the LCA
             return root
 
-        if left == None:
-            return right
+        if left == None:   # if left or right return none means there were no p or q in that path
+            return right   # pass root to right child if found none in left path
         else:
-            return left
+            return left    # pass root to left child if found none in right path
